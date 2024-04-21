@@ -131,7 +131,6 @@ p {
 }
 
 .subcontainer .images {
-    
     scroll-snap-align: start;
     flex-direction: column;
     list-style: none;
