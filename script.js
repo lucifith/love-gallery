@@ -6,8 +6,6 @@ const subcontainerChildrens = [...subcontainer.children]
 
 let imagesPerView = Math.round(subcontainer.offsetWidth / firstimagesWidth)
 
-let isAutoPlay = true, startX, startScrollLeft, timeoutId
-
 subcontainerChildrens.slice(-imagesPerView).reverse().forEach(images => {
     subcontainer.insertAdjacentHTML("afterbegin", images.outerHTML)
 });
@@ -37,16 +35,7 @@ const infiniteScroll = () => {
         subcontainer.scrollLeft = subcontainer.offsetWidth
         subcontainer.classList.remove("no-transition")
     }
-
-    clearTimeout(timeoutId);
-    if (!wrapper.matches(":hover")) autoPlay();
 }
-
-const autoPlay = () => {
-    if (window.innerWidth < 800 || !isAutoPlay) return;
-    timeoutId = setTimeout(() => subcontainer.scrollLeft += firstCardWidth, 2500);
-}
-autoPlay()
 
 subcontainer.addEventListener("scroll", infiniteScroll)
 container.addEventListener("mouseenter", () => clearTimeout(timeoutId))
