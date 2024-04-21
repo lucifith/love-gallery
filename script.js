@@ -1,41 +1,52 @@
-const container = document.querySelector(".container");
-const subcontainer = document.querySelector(".subcontainer");
-const firstimagesWidth = subcontainer.querySelector(".images").offsetWidth;
-const arrows = document.querySelectorAll(".container i");
-const subcontainerChildrens = [...subcontainer.children];
+const container = document.querySelector(".container")
+const subcontainer = document.querySelector(".subcontainer")
+const firstimagesWidth = subcontainer.querySelector(".images").offsetWidth
+const arrows = document.querySelectorAll(".container i")
+const subcontainerChildrens = [...subcontainer.children]
 
-let imagesPerView = Math.round(subcontainer.offsetWidth / firstimagesWidth);
+let imagesPerView = Math.round(subcontainer.offsetWidth / firstimagesWidth)
+
+let isAutoPlay = true, startX, startScrollLeft, timeoutId
 
 subcontainerChildrens.slice(-imagesPerView).reverse().forEach(images => {
-    subcontainer.insertAdjacentHTML("afterbegin", images.outerHTML);
+    subcontainer.insertAdjacentHTML("afterbegin", images.outerHTML)
 });
 
 subcontainerChildrens.slice(0, imagesPerView).forEach(images => {
-    subcontainer.insertAdjacentHTML("beforeend", images.outerHTML);
+    subcontainer.insertAdjacentHTML("beforeend", images.outerHTML)
 });
 
-subcontainer.classList.add("no-transition");
+subcontainer.classList.add("no-transition")
 subcontainer.scrollLeft = subcontainer.offsetWidth;
-subcontainer.classList.remove("no-transition");
+subcontainer.classList.remove("no-transition")
 
 arrows.forEach(button => {
     button.addEventListener("click", () => {
-        subcontainer.scrollLeft += button.id == "left" ? -firstimagesWidth : firstimagesWidth;
+        subcontainer.scrollLeft += button.id == "left" ? -firstimagesWidth : firstimagesWidth
     });
 });
 
 const infiniteScroll = () => {
-    if(subcontainer.scrollLeft === 0) {
-        subcontainer.classList.add("no-transition");
-        subcontainer.scrollLeft = subcontainer.scrollWidth - (2 * subcontainer.offsetWidth);
-        subcontainer.classList.remove("no-transition");
+    if (subcontainer.scrollLeft === 0) {
+        subcontainer.classList.add("no-transition")
+        subcontainer.scrollLeft = subcontainer.scrollWidth - (2 * subcontainer.offsetWidth)
+        subcontainer.classList.remove("no-transition")
     }
-    else if(Math.ceil(subcontainer.scrollLeft) === subcontainer.scrollWidth - subcontainer.offsetWidth) {
-        subcontainer.classList.add("no-transition");
-        subcontainer.scrollLeft = subcontainer.offsetWidth;
-        subcontainer.classList.remove("no-transition");
+    else if (Math.ceil(subcontainer.scrollLeft) === subcontainer.scrollWidth - subcontainer.offsetWidth) {
+        subcontainer.classList.add("no-transition")
+        subcontainer.scrollLeft = subcontainer.offsetWidth
+        subcontainer.classList.remove("no-transition")
     }
+
+    clearTimeout(timeoutId);
+    if (!wrapper.matches(":hover")) autoPlay();
 }
 
-subcontainer.addEventListener("scroll", infiniteScroll);
-container.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+const autoPlay = () => {
+    if (window.innerWidth < 800 || !isAutoPlay) return;
+    timeoutId = setTimeout(() => subcontainer.scrollLeft += firstCardWidth, 2500);
+}
+autoPlay()
+
+subcontainer.addEventListener("scroll", infiniteScroll)
+container.addEventListener("mouseenter", () => clearTimeout(timeoutId))
