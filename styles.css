@@ -154,19 +154,67 @@ p {
     transform: scale(0.9);
 }
 
-@media screen and (max-width: 1064px) {
+.section {
+    background-color: #a978ca;
+    font-family: 'Varela Round';
+}
+
+.section h1 {
+    color: #0a001d;
+    text-align: left;
+    padding: 5%;
+    padding-bottom: 3%;
+    font-size: 500%;
+}
+
+.section p {
+    color: #14021d;
+    text-align: left;
+    padding-left: 10%;
+    font-size: 200%;
+}
+
+.timeline-text {
+    height: 8000px;
+    margin: auto;
+    background-color: #59565a;
+}
+
+.timeline-center {
+    height: inherit;
+    padding-top: 3%;
+    width: 7%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-color: #b4b4b4;
+}
+
+.timeline-circle {
+    position: sticky;
+    background: #dca8f5;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    top: 25vh;
+    box-shadow: 0 0 6px #000;
+}
+
+
+@media screen and (max-width: 1400px) {
     .container .subcontainer {
-        grid-auto-columns: calc((100% / 3) + 9px);
+        grid-auto-columns: calc((100% / 3));
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container .subcontainer {
+        grid-auto-columns: calc((100% / 2) + 10px);
     }
 }
 
 @media screen and (max-width: 800px) {
-    .container .subcontainer {
-        grid-auto-columns: calc((100% / 2) + 6px);
-    }
-}
-
-@media screen and (max-width: 600px) {
     .container .subcontainer {
         grid-auto-columns: 100%
     }
