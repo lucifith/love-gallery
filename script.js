@@ -38,4 +38,3 @@ const infiniteScroll = () => {
 }
 
 subcontainer.addEventListener("scroll", infiniteScroll)
-container.addEventListener("mouseenter", () => clearTimeout(timeoutId))
