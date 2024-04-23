@@ -272,6 +272,7 @@ p {
     display: grid;
     grid-template-columns: 25vw 25vw 25vw 25vw;
     justify-items: center;
+    list-style: none;
 }
 
 .exhibition-images {
