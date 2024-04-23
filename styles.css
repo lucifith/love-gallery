@@ -162,7 +162,6 @@ p {
     height: fit-content;
     background-color: #0a041f;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
 }
 
 .timeline-container h1 {
@@ -181,7 +180,6 @@ p {
     animation: fadeIn ease both;
     animation-timeline: view();
     animation-range: cover 0% cover 50%;
-    
 }
 
 .timeline-subcontainer {
@@ -204,7 +202,7 @@ p {
 
 .timeline-line {
     width: 20px;
-    height: 80vh;
+    height: auto;
     outline: 7px solid #0a041f;
     outline-offset: -6px;
     border-radius: 10px 10px 10px 10px;
@@ -234,6 +232,9 @@ p {
     color: #c9addb;
     font-size: 30px;
     grid-template-rows: auto auto 0;
+    animation: fadeIn ease both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 70%;
 }
 
 .timeline-text img {
@@ -242,6 +243,49 @@ p {
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 3px 5px #00000083;
+    animation: fadeIn ease both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 70%;
+}
+
+.exhibition-container {
+    height: fit-content;
+    background-color: #01010f;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.exhibition-container h1 {
+    text-align: left;
+    padding: 10vh 0 0 10vh;
+    color: #d1d3e7;
+}
+
+.exhibition-container p {
+    text-align: left;
+    padding: 5vh 0 10vh 10vh;
+    color: #d1d3e7;
+}
+
+.exhibition-subcontainer {
+    height: 100vh;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw 25vw;
+    justify-items: center;
+}
+
+.exhibition-images {
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+    grid-template-rows: auto;
+}
+
+.exhibition-images img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 @keyframes reveal {
