@@ -160,26 +160,34 @@ p {
 
 .timeline-container {
     height: fit-content;
-    background-color: #2B1D4A;
-    font-family: 'Varela Round';
+    background-color: #0a041f;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
 }
 
 .timeline-container h1 {
-    color: #e9a7f1;
+    color: #dd5cb6;
     text-shadow: 0 0 8px #000;
     padding-top: 10vh;
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
 }
 
 .timeline-container p {
     color: #b57cbb;
-    text-shadow: 0 0 8px #000;
+    text-shadow: 0 0 3px #000;
     padding: 5vh;
+    animation: fadeIn ease both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 50%;
+    
 }
 
 .timeline-subcontainer {
     height: 80vh;
     display: grid;
-    grid-template-columns: 40vw 20vw 40vw;
+    grid-template-columns: 20vw 3vw 80vw;
     justify-items: center;
 }
 
@@ -189,39 +197,76 @@ p {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-color: #e9a7f1;
+    background-color: #bd3663;
     box-shadow: 0 0 6px #000;
-    outline: 6px solid #2B1D4A;
+    outline: 6px solid #0a041f;
 }
 
 .timeline-line {
-    position: sticky;
     width: 20px;
-    top: 20vh;
-    outline: 3px solid #2B1D4A;
-    outline-offset: -5px;
+    height: 80vh;
+    outline: 7px solid #0a041f;
+    outline-offset: -6px;
     border-radius: 10px 10px 10px 10px;
-    background-color: #131330;
+    background: #ac8aac;
 }
 
 .timeline-date {
     position: sticky;
     top: 20vh;
-    justify-self: right;
+    justify-self: center;
     width: fit-content;
     height: fit-content;
-    color: #a46cd8;
     font-size: 50px;
     font-weight: bold;
-    text-shadow: 0 0 6px #000;
+    text-shadow: 0 0 3px #000;
+    color: #bd3663;
+    animation: fadeIn ease both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 70%;
 }
 
 .timeline-text {
-    display: flex;
-    justify-self: left;
-    align-items: flex-end;
-    color: #000116;
+    display: grid;
+    padding: 10vh 0;
+    width: 65vw;
+    justify-items: left;
+    color: #c9addb;
     font-size: 30px;
+    grid-template-rows: auto auto 0;
+}
+
+.timeline-text img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px #00000083;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 1400px) {
